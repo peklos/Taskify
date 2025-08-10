@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import "@fontsource/montserrat";
+
+/* Светлая тема (по умолчанию) */
+:root {
+  --bg-color: white;
+  --text-color: #1f2937; /* gray-800 */
+}
+
+/* Тёмная тема */
+.dark {
+  --bg-color: #1f2937; /* gray-800 */
+  --text-color: white;
+}
