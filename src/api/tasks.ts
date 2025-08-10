@@ -1,7 +1,7 @@
 import api from "./axios";
 import type { Task } from "@/types/task";
 
-export const getTasks = async (userId?: number): Promise<Task[]> => {
+export const getTasks = async (userId?: string): Promise<Task[]> => {
   const response = await api.get("/tasks", {
     params: {
       userId,
