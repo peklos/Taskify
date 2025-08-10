@@ -2,12 +2,12 @@ import axios from "./axios";
 import type { User, NewUser } from "@/types/user";
 
 export const fetchUsers = async (): Promise<User[]> => {
-  const response = await axios.get<User[]>("/users");
+  const response = await axios.get("/users");
   return response.data;
 };
 
 export const fetchUserById = async (id: string): Promise<User> => {
-  const response = await axios.get<User>(`/users/${id}`);
+  const response = await axios.get(`/users/${id}`);
   return response.data;
 };
 
@@ -19,7 +19,7 @@ export const loginUser = async (
     return null;
   }
 
-  const response = await axios.get<User[]>(
+  const response = await axios.get(
     `/users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(
       password
     )}`
@@ -29,7 +29,7 @@ export const loginUser = async (
 };
 
 export const registerUser = async (user: NewUser): Promise<User> => {
-  const response = await axios.post<User>("/users", user);
+  const response = await axios.post("/users", user);
   return response.data;
 };
 
@@ -47,7 +47,7 @@ export const updateUserProfile = async (
     filteredData.email = data.email;
   }
 
-  const response = await axios.patch<User>(`/users/${id}`, filteredData);
+  const response = await axios.patch(`/users/${id}`, filteredData);
   return response.data;
 };
 
@@ -59,12 +59,12 @@ export const updateUserPassword = async (
     throw new Error("Пароль не может быть пустым");
   }
 
-  const response = await axios.patch<User>(`/users/${id}`, { password });
+  const response = await axios.patch(`/users/${id}`, { password });
   return response.data;
 };
 
 export const fetchUserByEmail = async (email: string): Promise<User | null> => {
-  const response = await axios.get<User[]>(
+  const response = await axios.get(
     `/users?email=${encodeURIComponent(email)}`
   );
   return response.data.length > 0 ? response.data[0] : null;

@@ -3,8 +3,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node"
   },
-  "include": ["src/**/*", "env.d.ts"],
+  "include": ["src/**/*", "env.d.ts", "tailwind.config.js"],
   "exclude": ["node_modules", "dist"]
 }
